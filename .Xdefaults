@@ -1,0 +1,10 @@
+Xft.dpi: 96
+Xcursor.size: 16
+Xcursor.theme: Adwaita
+
+*foreground: rgb:e5/e5/e5 
+*background: rgb:00/00/00
+
+Sxiv.foreground: #ff4151
+Sxiv.background: #0f111a
+Sxiv.font: Terminus:size=10:style=bold
