@@ -466,5 +466,5 @@
 # vim: ft=cfg
 [play_sound]
 	summary = "*"
-	script = /home/rwt/Scripts/sounds/alert.sh
+	script = /home/rwt/.scripts/sounds/alert.sh
 
