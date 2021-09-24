@@ -5,12 +5,8 @@ set title
 set hlsearch
 set incsearch
 set clipboard=unnamedplus
-colorscheme delek
+colorscheme material
 
 syntax enable
-hi Normal ctermbg=NONE guibg=NONE
-hi LineNrAbove ctermfg=2 ctermbg=NONE
-hi LineNr ctermfg=3 ctermbg=NONE
-hi LineNrBelow ctermfg=2 ctermbg=NONE
-let g:airline_theme='base16'
-
+let g:airline_theme='material'
+let g:material_theme_style = 'ocean'
