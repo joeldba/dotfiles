@@ -15,3 +15,5 @@ Xcursor.theme: Adwaita
 Sxiv.foreground: #ff4151
 Sxiv.background: #0f111a
 Sxiv.font: Terminus:size=10:style=bold
+xmenu.background: #0f111a
+xmenu.foreground: #e5e9f0
