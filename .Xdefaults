@@ -1,3 +1,4 @@
+! Xft settings
 Xft.dpi: 96
 Xft.antialias: true 
 Xft.hinting: true 
@@ -6,14 +7,43 @@ Xft.autohint: true
 Xft.hintstyle: hintfull 
 Xft.lcdfilter: lcdfilter
 
+! Xcursor settings
 Xcursor.size: 16
 Xcursor.theme: Adwaita
 
-*foreground: rgb:e5/e5/e5 
-*background: rgb:00/00/00
-
+! sxiv settings
+! *foreground: rgb:e5/e5/e5 
+! *background: rgb:00/00/00
 Sxiv.foreground: #ff4151
 Sxiv.background: #0f111a
 Sxiv.font: Terminus:size=10:style=bold
+
+! Xmenu settings
 xmenu.background: #0f111a
 xmenu.foreground: #e5e9f0
+
+! Xterm settings 
+! font rendering settings
+XTerm.vt100.renderFont: true
+XTerm.vt100.faceName: Terminus:size=12
+XTerm.vt100.internalBorder: 15
+! colors
+xterm*background: rgb:0f/11/1a
+xterm*foreground: rgb:e5/e9/f0
+xterm*color0:     rgb:0f/11/1a
+xterm*color1:     rgb:bf/61/6a
+xterm*color2:     rgb:a3/be/8c
+xterm*color3:     rgb:eb/cb/8b
+xterm*color4:     rgb:81/a1/c1
+xterm*color5:     rgb:b4/8e/ad
+xterm*color6:     rgb:88/c0/d0
+xterm*color7:     rgb:e5/e9/f0
+xterm*color8:     rgb:4c/56/6a
+xterm*color9:     rgb:bf/61/6a
+xterm*color10:     rgb:a3/be/8c
+xterm*color11:     rgb:eb/cb/8b
+xterm*color12:     rgb:81/a1/c1
+xterm*color13:     rgb:b4/8e/ad
+xterm*color14:     rgb:88/c0/d0
+xterm*color15:    rgb:e5/e9/f0
+xterm*cursorColor: #e5e9f0
