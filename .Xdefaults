@@ -23,11 +23,11 @@ xmenu.background: #0f111a
 xmenu.foreground: #e5e9f0
 
 ! Xterm settings 
-! font rendering settings
 XTerm.vt100.renderFont: true
-XTerm.vt100.faceName: Terminus:size=12
+XTerm.vt100.faceName: xft:Terminus:size=12
 XTerm.vt100.internalBorder: 15
-! colors
+XTerm.vt100.cursorBlink:true
+! Xterm colors
 xterm*background: rgb:0f/11/1a
 xterm*foreground: rgb:e5/e9/f0
 xterm*color0:     rgb:0f/11/1a
@@ -47,3 +47,31 @@ xterm*color13:     rgb:b4/8e/ad
 xterm*color14:     rgb:88/c0/d0
 xterm*color15:    rgb:e5/e9/f0
 xterm*cursorColor: #e5e9f0
+
+! URxvt settings
+URxvt.font: xft:Terminus:size=12
+URxvt.scrollBar:false
+URxvt.internalBorder:15
+URxvt.depth: 32
+URxvt.cursorBlink:true
+! URxvt colors
+URxvt.background: [90]#0f111a 
+URxvt.foreground: rgb:e5/e9/f0
+URxvt.color0:     rgb:0f/11/1a
+URxvt.color1:     rgb:bf/61/6a
+URxvt.color2:     rgb:a3/be/8c
+URxvt.color3:     rgb:eb/cb/8b
+URxvt.color4:     rgb:81/a1/c1
+URxvt.color5:     rgb:b4/8e/ad
+URxvt.color6:     rgb:88/c0/d0
+URxvt.color7:     rgb:e5/e9/f0
+URxvt.color8:     rgb:4c/56/6a
+URxvt.color9:     rgb:bf/61/6a
+URxvt.color10:     rgb:a3/be/8c
+URxvt.color11:     rgb:eb/cb/8b
+URxvt.color12:     rgb:81/a1/c1
+URxvt.color13:     rgb:b4/8e/ad
+URxvt.color14:     rgb:88/c0/d0
+URxvt.color15:    rgb:e5/e9/f0
+URxvt.cursorColor: #e5e9f0
+
