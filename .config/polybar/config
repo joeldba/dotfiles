@@ -1,0 +1,232 @@
+[colors]
+background = #0f111a
+background-alt = #272931
+foreground = #e5e9f0
+foreground-alt = #e5e9f0
+primary = #e5e9f0
+secondary = #81a1c1
+alert = #bf616a
+
+[bar/mybar]
+monitor = ${env:MONITOR:HDMI-0}
+width = 100%
+height = 24
+offset-x = 0%
+offset-y = 0%
+radius = 0
+fixed-center = true
+
+;bar colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;underline size
+line-size = 2
+line-color = #f00
+
+;border size
+border-size = 4
+border-color = ${colors.background} 
+
+;bar padding
+padding-left = 0
+padding-right = 0
+
+;module margins
+module-margin-left = 0
+module-margin-right = 1
+module-margin-top = 1
+module-margin-bottom = 1
+
+;fonts
+font-0 = Terminus:pixelsize=10;1
+font-1 = FontAwesome5Free::style=Solid:size=8;1
+font-2 = siji:pixelsize=10;1
+
+;module positions
+modules-left = i3
+modules-center = xwindow
+modules-right = mpd pulseaudio wlan date
+
+;tray settings
+tray-position = right
+tray-padding = 2
+tray-background = #0f111a
+
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+;modules
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:80:...%
+label-underline = ${colors.alert} 
+label-background = ${colors.background-alt} 
+label-padding = 2
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-unfocused-foreground = ${colors.secondary}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song> 
+format-online-background = #3b4252
+label-song-maxlen = 35 
+label-song-ellipsis = true
+label-song-padding = 2
+
+[module/wlan]
+type = internal/network
+interface = wlp0s20f0u8
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-background = #3b4252
+label-connected = " %essid%"
+label-connected-padding = 2
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+time = " %I:%M %p"
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-background = ${colors.background-alt} 
+
+label =  %time%
+label-padding = 2
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume = " %percentage%%"
+label-volume-foreground = ${root.foreground}
+label-volume-background = ${colors.background-alt}
+label-volume-padding = 2
+
+label-muted = muted
+label-muted-foreground = ${colors.foreground} 
+label-muted-padding = 2
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate = 750
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
