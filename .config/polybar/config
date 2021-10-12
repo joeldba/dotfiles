@@ -44,13 +44,13 @@ font-1 = FontAwesome5Free::style=Solid:size=8;1
 font-2 = siji:pixelsize=10;1
 
 ;module positions
-modules-left = i3
-modules-center = xwindow
-modules-right = mpd pulseaudio wlan date
+modules-left = i3 xwindow
+modules-center = date
+modules-right = mpd pulseaudio wlan
 
 ;tray settings
 tray-position = right
-tray-padding = 2
+tray-padding = 4
 tray-background = #0f111a
 
 wm-restack = i3
@@ -70,8 +70,8 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:80:...%
-label-underline = ${colors.alert} 
+label = %title:0:128:...%
+label-underline = ${colors.secondary} 
 label-background = ${colors.background-alt} 
 label-padding = 2
 
@@ -86,7 +86,7 @@ label-focused-padding = 2
 label-occupied = %index%
 label-occupied-padding = 2
 
-label-urgent = %index%!
+label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
@@ -102,35 +102,38 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+strip-wsnumbers = true
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
+label-mode = %mode%
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.secondary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = 2
 label-unfocused-foreground = ${colors.secondary}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -170,6 +173,7 @@ format-background = ${colors.background-alt}
 
 label =  %time%
 label-padding = 2
+label-underline = ${colors.secondary}
 
 [module/pulseaudio]
 type = internal/pulseaudio
