@@ -1,1 +1,2 @@
+xrdb ~/.Xdefaults &
 exec dwm
