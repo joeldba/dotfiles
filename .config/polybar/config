@@ -44,9 +44,9 @@ font-1 = FontAwesome5Free::style=Solid:size=8;1
 font-2 = siji:pixelsize=10;1
 
 ;module positions
-modules-left = i3 xwindow
-modules-center = date
-modules-right = mpd pulseaudio wlan
+modules-left = i3
+modules-center = xwindow
+modules-right = mpd pulseaudio wlan date
 
 ;tray settings
 tray-position = right
@@ -72,7 +72,7 @@ cursor-scroll = ns-resize
 type = internal/xwindow
 label = %title:0:128:...%
 label-underline = ${colors.secondary} 
-label-background = ${colors.background-alt} 
+label-background = ${colors.background} 
 label-padding = 2
 
 [module/bspwm]
@@ -141,7 +141,12 @@ label-urgent-padding = 2
 [module/mpd]
 type = internal/mpd
 format-online = <label-song> 
+format-online-prefix = 
+format-online-prefix-padding = 1
+format-online-prefix-foreground = ${colors.background}
+format-online-prefix-background = ${colors.secondary}
 format-online-background = #3b4252
+format-online-underline = ${colors.secondary}
 label-song-maxlen = 35 
 label-song-ellipsis = true
 label-song-padding = 2
@@ -153,7 +158,13 @@ interval = 3.0
 
 format-connected = <label-connected>
 format-connected-background = #3b4252
-label-connected = " %essid%"
+format-connected-prefix = 
+format-connected-prefix-padding = 1
+format-connected-prefix-background = ${colors.secondary}
+format-connected-prefix-foreground = ${colors.background}
+format-connected-underline = ${colors.secondary}
+
+label-connected = "%essid%"
 label-connected-padding = 2
 
 format-disconnected =
@@ -166,25 +177,37 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-time = " %I:%M %p"
-
-format-prefix-foreground = ${colors.foreground-alt}
-format-background = ${colors.background-alt} 
+time = "%I:%M %p"
+format-prefix = 
+format-prefix-padding = 1
+format-prefix-foreground = ${colors.background}
+format-prefix-background = ${colors.secondary}
+format-underline = ${colors.secondary}
+format-background = #3b4252 
 
 label =  %time%
 label-padding = 2
-label-underline = ${colors.secondary}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-label-volume = " %percentage%%"
+format-volume-prefix = 
+format-volume-prefix-padding = 1 
+format-volume-prefix-background = ${colors.secondary} 
+format-volume-prefix-foreground = ${colors.background} 
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
-label-volume-background = ${colors.background-alt}
+label-volume-background = #3b4252 
+label-volume-underline = ${colors.secondary}
 label-volume-padding = 2
 
 label-muted = muted
+format-muted-prefix = 
+format-muted-prefix-padding = 1
+format-muted-prefix-background = ${colors.alert}
+format-muted-prefix-foreground = ${colors.background}
+format-muted-underline = ${colors.alert}
 label-muted-foreground = ${colors.foreground} 
 label-muted-padding = 2
 
