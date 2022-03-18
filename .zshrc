@@ -1,4 +1,4 @@
-# Created by newuser for 5.8
+# Created by joeldba for 5.8
 
 autoload -U compinit && compinit
 autoload -U colors && colors
@@ -13,14 +13,15 @@ HISTFILE=~/.zsh_history
 HISTSIZE=SAVEHIST=1000
 
 # autostart X at login on tty1
-# if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-#  exec startx
-# fi
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+ exec startx -- vt1 &> /dev/null
+fi
 
 # exports
 export MAKEFLAGS="-j4 -l4"
 export EDITOR="/usr/bin/vim"
 export BROWSER="/usr/bin/firefox"
+export PAGER="/usr/bin/most"
 
 # key bindings
 bindkey  "^[[H"   beginning-of-line
@@ -28,7 +29,7 @@ bindkey  "^[[4~"   end-of-line
 bindkey  "^[[3~"  delete-char
 
 # aliases
-alias ls="exa --icons -l"
+alias ls="exa -l"
 alias cat="bat"
 alias tree="tree -C"
 alias wipehistory="rm $HOME/.zsh_history"
@@ -44,12 +45,15 @@ alias randomwall="/home/rwt/.scripts/randomwall/randomwall.sh"
 alias reboot="doas reboot"
 alias poweroff="doas poweroff"
 alias dang="fuck"
+alias cmatrix="cmatrix -bC blue"
+alias archnews="links archlinux.org/news"
+alias archbugs="links bugs.archlinux.org"
 eval $(thefuck --alias)
 
 # load plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-insulter/zsh.command-not-found
+# source /usr/share/zsh/plugins/zsh-insulter/zsh.command-not-found
 
 # enable tab-autocomplete menu highlighting
 zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
@@ -57,6 +61,5 @@ zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-compl
 
 zstyle ':completion:*' menu select
 
-# other cmds
-fortune -as
-echo ""
+# set terminal name
+printf "\033]2;$TERM: $USER@$HOST\007"
